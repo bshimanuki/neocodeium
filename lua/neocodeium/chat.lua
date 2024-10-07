@@ -64,7 +64,7 @@ function chat.launch(response)
       return acc .. key .. "=" .. tostring(value) .. "&"
    end)
 
-   if options.open_chat_in_browser then
+   if options.open_in_browser then
       vim.ui.open(url)
       vim.schedule(function()
          echo.info("chat has been opened in the browser")

@@ -18,12 +18,20 @@ local json = vim.json
 ---Opens url in the default browser and notifies a user.
 ---@param url url
 local function open_browser(url)
-   vim.ui.open(url)
-   echo.info(
-      "browser should have been opened with the URL (if it doesn't, then open the URL manually):\n"
-         .. url
-         .. "\nLogin and copy a token on the page.\n\n"
-   )
+   if options.open_in_browser then
+      vim.ui.open(url)
+      echo.info(
+         "browser should have been opened with the URL (if it doesn't, then open the URL manually):\n"
+            .. url
+            .. "\nLogin and copy a token on the page.\n\n"
+      )
+   else
+      echo.info(
+         "Open this URL manually:\n"
+            .. url
+            .. "\nLogin and copy a token on the page.\n\n"
+      )
+   end
 end
 
 ---Returns user input hiding text with * characters.
