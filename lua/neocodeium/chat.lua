@@ -64,10 +64,16 @@ function chat.launch(response)
       return acc .. key .. "=" .. tostring(value) .. "&"
    end)
 
-   vim.ui.open(url)
-   vim.schedule(function()
-      echo.info("chat has been opened in the browser: " .. url)
-   end)
+   if options.open_chat_in_browser then
+      vim.ui.open(url)
+      vim.schedule(function()
+         echo.info("chat has been opened in the browser")
+      end)
+   else
+      vim.schedule(function()
+         echo.info("chat url: " .. url)
+      end)
+   end
 end
 
 ---Sends a request to the server to refresh context
