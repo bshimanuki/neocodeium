@@ -82,6 +82,20 @@ function Server:start()
       table.insert(args, options.server.portal_url)
    end
 
+   if options.server.chat_web_server_port and options.server.chat_web_server_port ~= "" then
+      table.insert(args, "--chat_web_server_port")
+      table.insert(args, options.server.chat_web_server_port)
+   end
+
+   if options.server.chat_client_port and options.server.chat_client_port ~= "" then
+      table.insert(args, "--chat_client_port")
+      table.insert(args, options.server.chat_client_port)
+   end
+
+   if options.server.chat_enabled then
+      self.chat_enabled = true
+   end
+
    if self.chat_enabled then
       table.insert(args, "--enable_local_search")
       table.insert(args, "--enable_index_service")

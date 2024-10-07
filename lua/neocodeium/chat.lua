@@ -66,7 +66,7 @@ function chat.launch(response)
 
    vim.ui.open(url)
    vim.schedule(function()
-      echo.info("chat has been opened in the browser")
+      echo.info("chat has been opened in the browser: " .. url)
    end)
 end
 
