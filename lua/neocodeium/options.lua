@@ -2,7 +2,8 @@
 ---@field enabled boolean
 ---@field bin? string
 ---@field manual boolean
----@field server { api_url?: string, portal_url?: string }
+---@field server { api_url?: string, portal_url?: string, chat_web_server_port?: string, chat_client_port?: string, chat_enabled?: boolean }
+---@field open_in_browser boolean
 ---@field show_label boolean
 ---@field debounce boolean
 ---@field max_lines integer # `-1` for all lines
@@ -18,6 +19,7 @@ local defaults = {
    bin = nil,
    manual = false,
    server = {},
+   open_in_browser = true,
    show_label = true,
    debounce = false,
    max_lines = 10000,

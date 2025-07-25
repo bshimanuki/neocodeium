@@ -65,10 +65,16 @@ function chat.launch(response)
       return acc .. key .. "=" .. tostring(value) .. "&"
    end)
 
-   vim.ui.open(url)
-   vim.schedule(function()
-      log.info("Chat has been opened in the browser", { type = log.ECHO })
-   end)
+   if options.open_in_browser then
+      vim.ui.open(url)
+      vim.schedule(function()
+         log.info("Chat has been opened in the browser: " .. url, { type = log.ECHO })
+      end)
+   else
+      vim.schedule(function()
+         log.info("Chat url: " .. url, { type = log.ECHO })
+      end)
+   end
 end
 
 --- XXX: should it change workspace?
